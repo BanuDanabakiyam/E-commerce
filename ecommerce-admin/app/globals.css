@@ -1,6 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* HEIGHT CONFIGURATION */
+html,
+body,
+:root {
+  height: 100%;
+}
+
+
  
 @layer base {
   :root {

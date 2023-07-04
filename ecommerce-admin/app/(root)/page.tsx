@@ -1,17 +1,26 @@
 "use client";
 // Client is user component
 
-import { Modal } from "@/components/ui/modal";
+import { useStoreModal } from "@/hooks/use-store-modal";
+import { useEffect } from "react";
 
 //import { UserButton } from "@clerk/nextjs";
 
 const SetupPage = () => {
+  const onOpen = useStoreModal((state) => state.onOpen);
+  const isOpen = useStoreModal((state) => state.isOpen);
+
+  useEffect(() => {
+    if (!isOpen){
+      onOpen();
+    }
+  },[isOpen,onOpen]);
+
 return (
     <div className="pt-2 ml-2">
-      {/* <UserButton afterSignOutUrl="/"> */}
-      <Modal title="Test" description="Test Description" isOpen onClose={() => {}}>
-      children
-      </Modal>
+               
+      Root Page
+
     </div>
   )
 }
@@ -22,3 +31,9 @@ export default SetupPage;
 
 // What is zustand ?
 //zustand is one of the smallest state management library.
+
+{/* <UserButton afterSignOutUrl="/"> */}
+      {/* <Modal title="Test" description="Test Description" isOpen onClose={() => {}}>
+      children
+      </Modal> */}
+

@@ -1,14 +1,19 @@
 import { UserButton } from "@clerk/nextjs";
 
 import { MainNav } from "./main-nav";
+import StoreSwitcher from "./store-switcher";
+
 
 const Navbar = () => {
     return(
         <div className="border-b">
             <div className="flex h-16 items-center px-4 ">
-                <div>
+                <StoreSwitcher/>
+                {/* <div>
                     This will be a store switcher
-                </div>
+                </div> */}
+                
+                
                 {/* <div>
                     This will be the routes
                 </div> */}

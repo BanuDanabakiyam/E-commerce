@@ -16,13 +16,16 @@ const SetupPage = () => {
     }
   },[isOpen,onOpen]);
 
-return (
-    <div className="pt-2 ml-2">
-               
-      Root Page
+  
+  return null;
 
-    </div>
-  )
+// return (
+//     <div className="pt-2 ml-2">
+               
+//       Root Page
+
+//     </div>
+//   )
 }
 
 export default SetupPage;

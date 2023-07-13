@@ -26,6 +26,7 @@ import {
     from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alert-modal";
+import { ApiAlert } from "@/components/ui/api-alert";
 
 interface SettingsFormProps {
     initialData: Store;
@@ -127,6 +128,11 @@ return(
             <Button disabled={loading} className="ml-auto" type="submit">Save changes</Button>
         </form>
     </Form>
+    <Separator/>
+    <ApiAlert  
+    title="test" description="test-desc"
+    variant="public"
+    />
     </>
     
 );

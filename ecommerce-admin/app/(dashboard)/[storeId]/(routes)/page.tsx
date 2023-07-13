@@ -9,7 +9,8 @@ const DashboardPage: React.FC<DashboardPageProps>= async ({
 }) => {
     const store = await prismadb.store.findFirst({
         where: {
-            id: params.storeId
+            id: params.storeId,
+        
         }
     });
 

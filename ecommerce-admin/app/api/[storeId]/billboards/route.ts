@@ -14,7 +14,7 @@ export async function POST(
           const { label, imageUrl } = body;
 
           if( !userId ){
-            return new NextResponse("Unauthorized", { status: 401 });
+            return new NextResponse("Unauthenticated", { status: 403 });
           }
 
           if (!label){
@@ -32,12 +32,12 @@ export async function POST(
           const storeByUserId = await prismadb.store.findFirst({
             where: {
                 id: params.storeId,
-                userId
+                userId,
             }
           });
 
           if( !storeByUserId ){
-            return new NextResponse("Unauthorized", { status: 403 });
+            return new NextResponse("Unauthorized", { status: 405 });
           }
 
          const billboard = await prismadb.billboard.create({

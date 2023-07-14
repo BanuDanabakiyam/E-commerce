@@ -111,6 +111,7 @@ return(
         title={title}
         description={description}
         /> 
+        {initialData && (
         <Button
         disabled={loading}
         variant="destructive"
@@ -119,6 +120,7 @@ return(
         >
             <Trash className="h-4 w-4"/>
         </Button>
+        )}
     </div>
     <Separator/>
     <Form {...form}>

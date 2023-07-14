@@ -13,6 +13,8 @@ export function MainNav (
 
     const pathname = usePathname(); // for next navigation
     const params = useParams();  // for next navigation
+
+
     const routes = [
         {
             href: `/${params.storeId}`,
@@ -22,7 +24,7 @@ export function MainNav (
         {
             href: `/${params.storeId}/billboards`,
             label: 'Billboards',
-            active: pathname === `/${params.storeId}/billboard`
+            active: pathname === `/${params.storeId}/billboards`
         },
         {
             href: `/${params.storeId}/settings`,

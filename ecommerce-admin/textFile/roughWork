@@ -25,4 +25,6 @@ Objects returned from functions.
 
 sr-only => It is only visible on serverSide.
 
+Separator => It is line of page
+
 

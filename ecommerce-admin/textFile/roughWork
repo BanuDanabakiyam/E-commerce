@@ -1,0 +1,28 @@
+What is the FC in React?
+function component
+FC stands for function component. 
+If we write a function that returns a React component,
+we can use this type.
+ const App: React. FC = () => 
+ { return <div>Hello</div>; };
+  If the function does not return a React component, TypeScript will throw an error.
+
+
+
+
+  why interface used in TypeScript?
+  interface interface_name {  
+          // variables' declaration  
+          // methods' declaration  
+}  
+Use of Interface;
+We can use the interface for the following things:
+
+Validating the specific structure of properties
+Objects passed as parameters
+Objects returned from functions.
+
+
+sr-only => It is only visible on serverSide.
+
+

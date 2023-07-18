@@ -3,12 +3,12 @@ import ColorForm from "./components/colors-form.tsx";
 const ColorPage = async ({
     params
 }: {
-    params: { colorsId:  string}
+    params: { colorId:  string}
 
 }) => {
     const color = await prismadb.color.findUnique({
         where: {
-            id: params.colorsId
+            id: params.colorId
         }
     });
     return(

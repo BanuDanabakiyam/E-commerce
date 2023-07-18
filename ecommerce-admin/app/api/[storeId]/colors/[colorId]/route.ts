@@ -4,11 +4,11 @@ import prismadb from "@/lib/prismadb";
 
 export async function GET (
     req: Request,
-    { params }: { params: { colorsId: string }}
+    { params }: { params: { colorId: string }}
 ) { 
     try {
 
-       if(!params.colorsId) {
+       if(!params.colorId) {
             return new NextResponse("Color id is required", { status: 400});
         }
 
@@ -16,7 +16,7 @@ export async function GET (
 
         const color = await prismadb.color.findUnique({
             where: {
-                id: params.colorsId,
+                id: params.colorId,
                 
             },
     
@@ -32,7 +32,7 @@ export async function GET (
 
 export async function DELETE (
     req: Request,
-    { params }: { params: {   storeId: string, colorsId: string }}
+    { params }: { params: {   storeId: string, colorId: string }}
 ) { 
     try {
         const { userId } = auth();
@@ -42,7 +42,7 @@ export async function DELETE (
             return new NextResponse("Unauthenticated", { status: 403 });
         }
 
-       if(!params.colorsId) {
+       if(!params.colorId) {
             return new NextResponse("Color id is required", { status: 400});
         }
 
@@ -60,7 +60,7 @@ export async function DELETE (
 
         const color = await prismadb.color.deleteMany({
             where: {
-                id: params.colorsId,
+                id: params.colorId,
                 
             },
     
@@ -77,7 +77,7 @@ export async function DELETE (
 
 export async function PATCH (
     req: Request,
-    { params }: { params: {  colorsId: string, storeId: string}}
+    { params }: { params: {  colorId: string, storeId: string}}
 ) { 
     try {
         const { userId } = auth();
@@ -97,7 +97,7 @@ export async function PATCH (
             return new NextResponse("Value is required", { status: 400 });
         }
 
-        if(!params.colorsId) {
+        if(!params.colorId) {
             return new NextResponse("Color id is required", { status: 400});
         }
 
@@ -116,7 +116,7 @@ export async function PATCH (
 
         const color = await prismadb.color.updateMany({
             where: {
-                id: params.colorsId,
+                id: params.colorId,
                 
             },
             data: {

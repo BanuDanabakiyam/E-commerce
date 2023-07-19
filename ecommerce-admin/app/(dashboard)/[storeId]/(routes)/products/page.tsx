@@ -30,9 +30,11 @@ const ProductsPage = async ({
      price: formatter.format(item.price.toNumber()),
      category: item.category.name,
      size: item.size.name,
-     color: item.color.value,
+     color: item.color.name,
      createdAt: format(item.createdAt,"MMMM do,yyyy")
     })) 
+    console.log("Inside formatted", formattedProducts);
+    console.log("name");
     
     return(
         <div className="flex-col">

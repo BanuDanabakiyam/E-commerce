@@ -95,8 +95,8 @@ export async function PATCH (
             name,
             price,
             categoryId,
-            colorId,
             sizeId,
+            colorId,
             images,
             isFeatured,
             isArchived
@@ -109,7 +109,7 @@ export async function PATCH (
         if (!name){
             return new NextResponse("Label is required", { status: 400 });
           }
-          if (!images || images.length) {
+          if (!images || images.length<1) {
             return new NextResponse("Images are required", { status: 400});
           }
           if (!price){
@@ -151,8 +151,8 @@ export async function PATCH (
                 name,
                 price,
                 categoryId,
-                colorId,
                 sizeId,
+                colorId,
                 images: {
                     deleteMany: {}
                 },

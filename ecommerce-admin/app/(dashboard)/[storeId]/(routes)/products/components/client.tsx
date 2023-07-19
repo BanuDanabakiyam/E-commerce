@@ -14,8 +14,10 @@ interface BillboardClientProps {
 }
 
 export const ProductClient: React.FC<BillboardClientProps> = ( {
+
     data
 }) => {
+    console.log("ProductClient", data);
     const router = useRouter();
     const params = useParams();
     return(
@@ -31,9 +33,9 @@ export const ProductClient: React.FC<BillboardClientProps> = ( {
             </Button>
         </div>
         <Separator />
-        <DataTable searchKey="label"  columns={columns} data={data}/>
+        <DataTable searchKey="name"  columns={columns} data={data}/>
         <Heading title="API" description="API calls for Products"/>
-        <Separator/>
+        <Separator/> 
         <ApiList entityName="products" entityIdName="productId" />
         </>
     );

@@ -18,14 +18,13 @@ export async function POST(
             name,
             price,
             categoryId,
-            colorId,
             sizeId,
+            colorId,
             images,
             isFeatured,
             isArchived
            } = body;
            
-           console.log("colorId",colorId);
             if( !userId ){
             return new NextResponse("Unauthenticated", { status: 401 });
           }
@@ -35,9 +34,6 @@ export async function POST(
             return new NextResponse("Label is required", { status: 400 });
           }
           if (!images || images.length<1) {
-            
-
-
             return new NextResponse("Images are required", { status: 400});
           }
           if (!price){
@@ -79,8 +75,8 @@ export async function POST(
                 isFeatured,
                 isArchived,
                 categoryId,
-                colorId,
                 sizeId,
+                colorId,
                 storeId: params.storeId,
                 images: {
                   createMany: {
@@ -91,7 +87,6 @@ export async function POST(
                 }
             }
           });
-          console.log("Inside product",product);
 
           return NextResponse.json(product);
 
@@ -112,31 +107,28 @@ export async function POST(
             try {
 const { searchParams } = new URL(req.url);
 const categoryId = searchParams.get("categoryId") || undefined;
-const colorId = searchParams.get("colorId") || undefined;
-console.log("colorId",colorId);
 const sizeId = searchParams.get("sizeId") || undefined;
+const colorId = searchParams.get("colorId") || undefined;
 const isFeatured = searchParams.get("isFeatured");
 
               if (!params.storeId){
                 return new NextResponse("Store id is required", { status: 400 });
               }
-    
-              
-              
              const products = await prismadb.product.findMany({
                 where: {
                     storeId: params.storeId,
                     categoryId,
-                    colorId,
                     sizeId,
+                    colorId,
                     isFeatured: isFeatured ? true : undefined,
                     isArchived: false
                 },
                 include: {
                   images: true,
                   category: true,
+                  size: true,
                   color: true,
-                  size: true
+
                 },
                 orderBy: {
                   createdAt: 'desc'

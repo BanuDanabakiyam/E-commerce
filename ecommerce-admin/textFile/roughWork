@@ -16,15 +16,20 @@ we can use this type.
           // methods' declaration  
 }  
 Use of Interface;
-We can use the interface for the following things:
-
-Validating the specific structure of properties
-Objects passed as parameters
-Objects returned from functions.
+Interface used for method declaration and datatype declaration.
+so we can used that method anywehere and define in that file
 
 
 sr-only => It is only visible on serverSide.
 
 Separator => It is line of page
+
+
+**************************
+Should I use UUID for user ID?
+Universally unique Identifier 
+Its sequence equal to 128bit combination and consist of 
+hexadecimal from 0-9 and A-F.
+By using UUIDs, you ensure that your ID is not just unique in the context of a single database table, but is unique in the universe. No other ID in the world should be match the value of yours
 
 

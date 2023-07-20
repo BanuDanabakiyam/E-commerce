@@ -32,3 +32,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+what is forwardRef?
+
+forwardRef is a function in React, a popular JavaScript library for building user interfaces
+ "forwardRef" function wraps the ChildComponent, allowing the ParentComponent to access the input element inside ChildComponent through the inputRef.

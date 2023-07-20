@@ -94,6 +94,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
 
      const onDelete =  async () => {
         try {
+            console.log("Inside on Delete")
             setLoading(true);
             await axios.delete(`/api/${params.storeId}/categories/${params.categoryId}`);
             router.refresh();
@@ -102,6 +103,8 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
 
 
         } catch (error) {
+            console.log("Inside on Delete 2")
+
             toast.error("Make sure you removed all products using this category first.");
         } finally {
             setLoading(false);

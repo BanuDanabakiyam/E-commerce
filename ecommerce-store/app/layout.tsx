@@ -1,3 +1,5 @@
+import Footer from './components/footer'
+import Navbar from './components/navbar'
 import './globals.css'
 import { Urbanist } from 'next/font/google'
 
@@ -15,7 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className}>{children}</body>
+      <body className={font.className}>
+        <Navbar/>
+        {children}
+      <Footer/>
+      </body>
     </html>
   )
 }

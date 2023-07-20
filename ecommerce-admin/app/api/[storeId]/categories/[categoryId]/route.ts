@@ -19,9 +19,9 @@ export async function GET (
                 id: params.categoryId,
                 
             },
-            // include: {
-            //     billboard: true
-            // }
+            include: {
+                billboard: true
+            }
     
         });
         return NextResponse.json(category);
@@ -98,14 +98,19 @@ export async function DELETE (
     { params }: { params: {   categoryId: string, storeId: string }}
 ) { 
     try {
+        console.log("Inside deelete 2");
         const { userId } = auth();
 
 
         if(!userId) {
+            console.log("Inside deelete 3");
+
             return new NextResponse("Unauthenticated", { status: 401 });
         }
 
        if(!params.categoryId) {
+        console.log("Inside deelete 4");
+
             return new NextResponse("Category id is required", { status: 400});
         }
 
@@ -121,7 +126,7 @@ export async function DELETE (
           }
 
 
-        const category = await prismadb.category.deleteMany({
+        const category = await prismadb.category.delete({
             where: {
                 id: params.categoryId,
                 

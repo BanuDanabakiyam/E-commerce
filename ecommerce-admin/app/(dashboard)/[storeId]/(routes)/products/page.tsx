@@ -1,5 +1,5 @@
 import prismadb from "@/lib/prismadb";
-import { formatter } from "@/lib/utils";
+import { indianCurrencyFormatter } from "@/lib/utils";
 import { format } from "date-fns";
 import { ProductClient } from "./components/client";
 import { ProductColumn } from "./components/columns";
@@ -27,7 +27,7 @@ const ProductsPage = async ({
      name: item.name,
      isFeatured: item.isFeatured,
      isArchived: item.isArchived,
-     price: formatter.format(item.price.toNumber()),
+     price: indianCurrencyFormatter.format(item.price.toNumber()),
      category: item.category.name,
      size: item.size.name,
      color: item.color.name,

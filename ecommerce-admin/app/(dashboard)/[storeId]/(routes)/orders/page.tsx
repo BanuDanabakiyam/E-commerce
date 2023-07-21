@@ -1,7 +1,7 @@
 import prismadb from "@/lib/prismadb";
 import { format } from "date-fns";
 import { OrderColumn } from "./components/columns";
-import { formatter } from "@/lib/utils";
+import { indianCurrencyFormatter} from "@/lib/utils"
 import { OrderClient } from "./components/client";
 const OrdersPage = async ({
     params
@@ -29,7 +29,7 @@ const OrdersPage = async ({
      phone: item.phone,
      address: item.address,
      products: item.orderItems.map((orderItem) => orderItem.product.name).join(', '),
-     totalPrice: formatter.format(item.orderItems.reduce((total, item) => {
+     totalPrice: indianCurrencyFormatter.format(item.orderItems.reduce((total, item) => {
         return total + Number(item.product.price)
      },0)),
      isPaid: item.isPaid,

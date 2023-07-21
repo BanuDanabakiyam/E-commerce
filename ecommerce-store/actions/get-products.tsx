@@ -10,19 +10,19 @@ interface Query {
 }
 
 const getProducts = async (query: Query): Promise<Product[]> => {
-        const url = qs.stringify({
-                url: URL,
-                query: {
-                        colorId: query.colorId,
-                        sizeId: query.sizeId,
-                        categoryId: query.categoryId,
-                        isFeatured: query.isFeatured,
-                },
-
-        });
-        
+        const url = qs.stringifyUrl({
+            url: URL,
+            query: {
+                colorId: query.colorId,
+                sizeId: query.sizeId,
+                categoryId: query.categoryId,
+                isFeatured: query.isFeatured, 
+            }    
+        })
+         
+                    
     
-        const res = await fetch(URL ,{cache: 'no-store'});
+        const res = await fetch(url ,{cache: 'no-store'});
         return res.json();
 
    
@@ -31,3 +31,6 @@ const getProducts = async (query: Query): Promise<Product[]> => {
 
 
 export default  getProducts;
+
+//  The qs.stringify() function is used to convert a 
+//  JavaScript object into a URL query string

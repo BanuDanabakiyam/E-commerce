@@ -34,7 +34,8 @@ export interface ButtonProps
          // classname This is a prop passed to the 
          // component from the parent.
         )}
-        ref={ref}>
+        ref={ref}
+        {...props}>
          {children}
          {/* React represent content of the button */}
         </button>

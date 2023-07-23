@@ -282,7 +282,7 @@ return(
                     disabled={loading}
                     onValueChange={field.onChange}
                     value={field.value}
-                    defaultValue={field.value}
+                     defaultValue={field.value}
                     >
                         <FormControl>
                             <SelectTrigger>

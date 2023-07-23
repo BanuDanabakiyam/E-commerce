@@ -40,10 +40,10 @@ const ProductCard: React.FC<ProductCard> = ({
             {/* Images and Actions */}
             <div className="aspect-square rounded-xl bg-gray-100 relative ">
              <Image 
-             src={data?.images?.[0]?.url}
+             src={data.images?.[0]?.url}
              fill
              alt="Image"
-             className=" aspect-square object-cover rounded-md "
+             className=" aspect-square object-fit object-cover rounded-md "
              /> 
              <div className="opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5">
                 <div className="flex gap-x-6 justify-center ">

@@ -97,9 +97,11 @@ export async function DELETE (
     req: Request,
     { params }: { params: {   categoryId: string, storeId: string }}
 ) { 
+
     try {
         console.log("Inside deelete 2");
         const { userId } = auth();
+        console.log("userId: ",userId)
 
 
         if(!userId) {
@@ -117,12 +119,12 @@ export async function DELETE (
         const storeByUserId = await prismadb.store.findFirst({
             where: {
                 id: params.storeId,
-                userId
+                userId,
             }
           });
 
           if( !storeByUserId ){
-            return new NextResponse("Unauthorized", { status: 403 });
+            return new NextResponse("Unauthorized", { status: 405 });
           }
 
 
@@ -130,16 +132,18 @@ export async function DELETE (
             where: {
                 id: params.categoryId,
                 
+                
             },
     
         });
+
         return NextResponse.json(category);
 
     } catch (error) {
         console.log('[CATEGORY_DELETE]', error);
         return new NextResponse("Internal error", { status: 500 });
-
     }
 }
+
 
 
